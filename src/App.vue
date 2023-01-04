@@ -1,24 +1,34 @@
 <template>
   <div class="main">
     <div class="tool">
-      <div class="player-counter" v-if="isMax">
-        人数：<n-input-number
-          size="small"
-          v-model:value="playerCount"
-          :min="5"
-          :max="16"
-          @update:value="hanldePlayerCountChange"
-        ></n-input-number>
+      <div class="tool-left" v-if="isMax">
+        <Handler />
       </div>
-      <Timer />
-      <Pin />
-      <Scale />
-      <Handler />
+      <div class="tool-right">
+        <div class="player-counter" v-if="isMax">
+          人数：<n-input-number
+            size="small"
+            v-model:value="playerCount"
+            :min="5"
+            :max="16"
+            @update:value="hanldePlayerCountChange"
+          ></n-input-number>
+        </div>
+        <Timer />
+        <Pin />
+        <Scale />
+        <Handler />
+      </div>
     </div>
     <ConfigBoxList :list="list" v-if="isMax" />
   </div>
 </template>
 <script setup>
+import {
+  appWindow,
+  LogicalPosition,
+  LogicalSize,
+} from '@tauri-apps/api/window';
 import { useStore } from '~/store/info';
 const playerCount = $ref(5);
 const store = useStore();
@@ -31,6 +41,16 @@ const list = $computed(() =>
 );
 onMounted(() => {
   hanldePlayerCountChange(playerCount);
+  const savedSize = store.getSavedSize;
+  if (savedSize && isMax) {
+    appWindow.setSize(new LogicalSize(savedSize[0], savedSize[1]));
+  }
+  const savedPosition = store.getSavedPosition;
+  if (savedPosition && isMax) {
+    appWindow.setPosition(
+      new LogicalPosition(savedPosition[0], savedPosition[1]),
+    );
+  }
 });
 </script>
 
@@ -53,9 +73,22 @@ onMounted(() => {
 }
 .tool {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 1vw;
   height: 50px;
   align-items: center;
+}
+.tool-left,
+.tool-right {
+  display: flex;
+  gap: 1vw;
+  align-items: center;
+  width: 100%;
+}
+.tool-left {
+  justify-content: flex-start;
+}
+.tool-right {
+  justify-content: flex-end;
 }
 </style>

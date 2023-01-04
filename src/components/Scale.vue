@@ -12,14 +12,16 @@ import { ArrowMaximize20Filled, ArrowMinimize20Filled } from '@vicons/fluent';
 
 const store = useStore();
 const isMax = $computed(() => store.getMaxStatus);
-const savedSize = $ref(new LogicalSize(800, 1200));
+const savedSize = $ref(store.getSavedSize);
 const scale = async () => {
   if (!isMax) {
     // 全屏
-    appWindow.setSize(savedSize);
+    appWindow.setSize(new LogicalSize(savedSize[0], savedSize[1]));
   } else {
     // 最小化
-    savedSize = await appWindow.innerSize();
+    const innerSize = await appWindow.innerSize();
+    savedSize = [innerSize.width, innerSize.height];
+    console.log('🚀 ~ scale ~ savedSize', savedSize);
     appWindow.setSize(new LogicalSize(200, 50));
   }
   store.setMaxStatus(!isMax);

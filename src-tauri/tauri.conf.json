@@ -36,7 +36,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.zeiion.dcm",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -63,13 +63,15 @@
     "windows": [
       {
         "fullscreen": false,
-        "height": 800,
         "resizable": true,
         "title": "DuckCongMing",
-        "width": 1200,
         "transparent": true,
         "decorations": false,
-        "alwaysOnTop": true
+        "alwaysOnTop": true,
+        "width": 1579,
+        "height": 789,
+        "x": 86,
+        "y": 127
       }
     ]
   }

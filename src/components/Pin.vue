@@ -8,14 +8,23 @@
 <script setup>
 import { appWindow } from '@tauri-apps/api/window';
 import { Pin20Filled, Pin20Regular } from '@vicons/fluent';
+import { useStore } from '~/store/info';
+const store = useStore();
+const isMax = $computed(() => store.getMaxStatus);
 const isPinned = $ref(false);
-const pin = () => {
+const pin = async () => {
   Promise.all([
-    appWindow.setResizable(isPinned),
+    // appWindow.setResizable(isPinned),
     appWindow.setAlwaysOnTop(!isPinned),
   ]).then(() => {
     isPinned = !isPinned;
   });
+  if (isMax) {
+    const outerPosition = await appWindow.outerPosition();
+    const savedSize = await appWindow.innerSize();
+    store.setSavedSize([savedSize.width, savedSize.height]);
+    store.setSavedPosition([outerPosition.x, outerPosition.y]);
+  }
 };
 </script>
 

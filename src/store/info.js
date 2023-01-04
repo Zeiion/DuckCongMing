@@ -7,6 +7,8 @@ export const useStore = defineStore({
     return {
       list: [],
       maxStatus: true,
+      savedPosition: [86, 127],
+      savedSize: [1579, 789],
     };
   },
   getters: {
@@ -16,10 +18,22 @@ export const useStore = defineStore({
     getList() {
       return this.list;
     },
+    getSavedPosition() {
+      return this.savedPosition;
+    },
+    getSavedSize() {
+      return this.savedSize;
+    },
   },
   actions: {
     setMaxStatus(val) {
       this.maxStatus = val;
+    },
+    setSavedPosition(val) {
+      this.savedPosition = val;
+    },
+    setSavedSize(val) {
+      this.savedSize = val;
     },
     initList(number = 5) {
       this.list = new Array(number).fill(0).map(
@@ -39,7 +53,6 @@ export const useStore = defineStore({
     },
     setInfoById(id, val) {
       const index = this.list.findIndex((item) => item.id === id);
-      console.log('🚀 ~ setInfoById ~ index', index, this.list, id);
       if (index === -1) return;
       this.list[index] = val;
     },
