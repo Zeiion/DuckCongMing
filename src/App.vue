@@ -29,6 +29,9 @@ const hanldePlayerCountChange = (count) => {
 const list = $computed(() =>
   new Array(playerCount).fill(0).map((_, i) => i + 1),
 );
+onMounted(() => {
+  hanldePlayerCountChange(playerCount);
+});
 </script>
 
 <style scoped>

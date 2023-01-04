@@ -22,14 +22,14 @@ export const useStore = defineStore({
       this.maxStatus = val;
     },
     initList(number = 5) {
-      this.list = Array.from(
-        { length: number },
+      this.list = new Array(number).fill(0).map(
         (_, i) =>
           this.list[i] || {
             id: i + 1,
             ...infoTemplate,
           },
       );
+      console.log('init', this.list);
     },
     getInfoById(id) {
       return this.list.find((item) => item.id === id);
@@ -39,6 +39,8 @@ export const useStore = defineStore({
     },
     setInfoById(id, val) {
       const index = this.list.findIndex((item) => item.id === id);
+      console.log('🚀 ~ setInfoById ~ index', index, this.list, id);
+      if (index === -1) return;
       this.list[index] = val;
     },
   },

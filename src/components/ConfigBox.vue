@@ -1,6 +1,8 @@
 <template>
   <div class="box" ref="box">
-    <div class="mask" ref="mask"></div>
+    <div class="mask" ref="mask">
+      <!-- {{ info }} -->
+    </div>
     <div class="vertical-list">
       <n-input
         v-model:value="info.remark"
@@ -9,7 +11,11 @@
         size="small"
       ></n-input>
       <div>
-        <n-checkbox v-model:check="info.status[0]" size="small">
+        <n-checkbox
+          :checked="info.status[0]"
+          size="small"
+          @update:checked="(...args) => handleCheckUpdate(0, ...args)"
+        >
           好鹅
         </n-checkbox>
         <n-select
@@ -24,7 +30,11 @@
         ></n-select>
       </div>
       <div>
-        <n-checkbox v-model:check="info.status[1]" size="small">
+        <n-checkbox
+          :checked="info.status[1]"
+          size="small"
+          @update:checked="(...args) => handleCheckUpdate(1, ...args)"
+        >
           坏鸭
         </n-checkbox>
         <n-select
@@ -39,7 +49,11 @@
         ></n-select>
       </div>
       <div>
-        <n-checkbox v-model:check="info.status[2]" size="small">
+        <n-checkbox
+          :checked="info.status[2]"
+          size="small"
+          @update:checked="(...args) => handleCheckUpdate(2, ...args)"
+        >
           中立
         </n-checkbox>
         <n-select
@@ -94,6 +108,11 @@ onMounted(async () => {
   const scale = box.clientHeight / (0.2 * height);
   box.style.transform = `scale(${scale})`;
 });
+
+const handleCheckUpdate = (index, checked) => {
+  info.status[index] = checked;
+  store.setInfoById(props.id, info);
+};
 </script>
 
 <style scoped>
@@ -107,6 +126,7 @@ onMounted(async () => {
 }
 .mask {
   flex: 1;
+  color: white;
 }
 .vertical-list {
   display: flex;
