@@ -43,7 +43,6 @@ export const useStore = defineStore({
             ...infoTemplate,
           },
       );
-      console.log('init', this.list);
     },
     getInfoById(id) {
       return this.list.find((item) => item.id === id);

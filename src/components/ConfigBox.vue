@@ -100,11 +100,8 @@ onMounted(() => {
   // 双击穿透 0.5s 用于投票
   mask.onmousedown = () => {
     appWindow.setIgnoreCursorEvents(true).then(() => {
-      console.log('setIgnoreCursorEvents', true);
       setTimeout(() => {
-        appWindow.setIgnoreCursorEvents(false).then(() => {
-          console.log('setIgnoreCursorEvents', false);
-        });
+        appWindow.setIgnoreCursorEvents(false).then(() => {});
       }, 500);
     });
   };

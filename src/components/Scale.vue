@@ -6,7 +6,7 @@
 </template>
 
 <script setup>
-import { appWindow, LogicalSize } from '@tauri-apps/api/window';
+import { appWindow, PhysicalSize } from '@tauri-apps/api/window';
 import { useStore } from '~/store/info';
 import { ArrowMaximize20Filled, ArrowMinimize20Filled } from '@vicons/fluent';
 
@@ -16,13 +16,14 @@ const savedSize = $ref(store.getSavedSize);
 const scale = async () => {
   if (!isMax) {
     // 全屏
-    appWindow.setSize(new LogicalSize(savedSize[0], savedSize[1]));
+    console.log('全屏', savedSize);
+    appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
   } else {
     // 最小化
     const innerSize = await appWindow.innerSize();
     savedSize = [innerSize.width, innerSize.height];
-    console.log('🚀 ~ scale ~ savedSize', savedSize);
-    appWindow.setSize(new LogicalSize(200, 50));
+    console.log('保存', savedSize);
+    appWindow.setSize(new PhysicalSize(200, 50));
   }
   store.setMaxStatus(!isMax);
 };

@@ -1,6 +1,6 @@
 <template>
-  <n-icon class="handler" size="30">
-    <ArrowMove20Filled data-tauri-drag-region />
+  <n-icon size="30">
+    <ArrowMove20Filled data-tauri-drag-region class="handler" />
   </n-icon>
 </template>
 

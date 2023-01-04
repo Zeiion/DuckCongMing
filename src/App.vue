@@ -6,7 +6,8 @@
       </div>
       <div class="tool-right">
         <div class="player-counter" v-if="isMax">
-          人数：<n-input-number
+          <span @click="clear">人数：</span>
+          <n-input-number
             size="small"
             v-model:value="playerCount"
             :min="5"
@@ -26,8 +27,8 @@
 <script setup>
 import {
   appWindow,
-  LogicalPosition,
-  LogicalSize,
+  PhysicalPosition,
+  PhysicalSize,
 } from '@tauri-apps/api/window';
 import { useStore } from '~/store/info';
 const playerCount = $ref(5);
@@ -39,18 +40,25 @@ const hanldePlayerCountChange = (count) => {
 const list = $computed(() =>
   new Array(playerCount).fill(0).map((_, i) => i + 1),
 );
-onMounted(() => {
+const clear = () => {
+  localStorage.clear();
   hanldePlayerCountChange(playerCount);
+};
+const restoreWindow = () => {
   const savedSize = store.getSavedSize;
   if (savedSize && isMax) {
-    appWindow.setSize(new LogicalSize(savedSize[0], savedSize[1]));
+    appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
   }
   const savedPosition = store.getSavedPosition;
   if (savedPosition && isMax) {
     appWindow.setPosition(
-      new LogicalPosition(savedPosition[0], savedPosition[1]),
+      new PhysicalPosition(savedPosition[0], savedPosition[1]),
     );
   }
+};
+onMounted(() => {
+  hanldePlayerCountChange(playerCount);
+  restoreWindow();
 });
 </script>
 

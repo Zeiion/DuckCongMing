@@ -13,7 +13,6 @@ const showTime = $computed(() => {
   return `${minute}:${second}`;
 });
 const handleClick = () => {
-  console.log('click');
   if (timer) {
     clearInterval(timer);
     timer = null;
