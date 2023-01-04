@@ -2,7 +2,7 @@
   <div class="main">
     <div class="tool">
       <div class="tool-left" v-if="isMax">
-        <Handler />
+        <Logo />
         <Info />
       </div>
       <div class="tool-right">

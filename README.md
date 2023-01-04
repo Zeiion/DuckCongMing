@@ -1,7 +1,12 @@
-# Tauri + Vue 3
+# DuckCongMing
 
-This template should help get you started developing with Tauri + Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+一款简单的鹅鸭杀（Goose Goose Duck）助手——大聪明。可以帮助记录一些关键信息，避免遗忘。
+受 [GooseGooseDuck_helper](https://github.com/Wandering-Li/GooseGooseDuck_helper) 启发，一时兴起而为之，欢迎指出 bug 或提出建议。
+支持的功能有：
 
-## Recommended IDE Setup
+- 窗口大小调节
+- 计时
+- 身份猜测
+- 备忘信息
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+理论上支持[Tauri](https://tauri.app/)支持的所有平台

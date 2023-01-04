@@ -15,7 +15,7 @@
           <Warning12Filled />
         </n-icon>
         <span>
-          本窗口虽然是半透明的，但是会遮挡鼠标操作，可以
+          “大聪明”虽然是半透明的，但是会遮挡鼠标操作，可以
           <span class="highlight">双击</span>
           角色方框左下（人物插画）部分或小化窗口进行
           <span class="highlight">投票</span>
@@ -25,7 +25,7 @@
         <n-icon color="#111" size="30">
           <ArrowMove20Filled />
         </n-icon>
-        <span> 拖动此按钮以窗口 </span>
+        <span> 拖动此按钮来移动窗口 </span>
       </div>
       <div class="desc">
         <n-icon color="#111" size="30">
@@ -66,7 +66,7 @@
       </div>
       <template #footer>
         <div class="footer">
-          一时兴起而为之，欢迎指出bug和建议
+          一时兴起而为之，欢迎提出bug和建议
           <br />
           \(Ze╹◡╹o)N
         </div>
@@ -111,6 +111,7 @@ const showInfo = () => {
 }
 .highlight {
   color: #f00;
+  font-weight: bold;
 }
 .footer {
   display: flex;
