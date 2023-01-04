@@ -26,6 +26,7 @@
           :options="characters.filter((item) => item.belong === 'goose')"
           multiple
           clearable
+          filterable
           placeholder="选择好鸭身份"
           size="small"
         ></n-select>
@@ -45,6 +46,7 @@
           :options="characters.filter((item) => item.belong === 'duck')"
           multiple
           clearable
+          filterable
           placeholder="选择坏鹅身份"
           size="small"
         ></n-select>
@@ -64,6 +66,7 @@
           :options="characters.filter((item) => item.belong === 'neutral')"
           multiple
           clearable
+          filterable
           placeholder="选择中立身份"
           size="small"
         ></n-select>
@@ -77,6 +80,7 @@ import { appWindow } from '@tauri-apps/api/window';
 import { characters, infoTemplate } from '~/config/characters';
 import { useStore } from '~/store/info';
 const store = useStore();
+const isMax = $computed(() => store.getMaxStatus);
 const props = defineProps({
   id: {
     type: Number,
@@ -92,8 +96,7 @@ const info = $computed({
 
 const mask = $ref(null);
 const box = $ref(null);
-onMounted(async () => {
-  const { height } = await appWindow.innerSize();
+onMounted(() => {
   // 双击穿透 0.5s 用于投票
   mask.onmousedown = () => {
     appWindow.setIgnoreCursorEvents(true).then(() => {
@@ -105,9 +108,14 @@ onMounted(async () => {
       }, 500);
     });
   };
-  // 根据box的高度设置scale
-  const scale = box.clientHeight / (0.2 * height);
-  box.style.transform = `scale(${scale})`;
+  appWindow.onResized(async () => {
+    // 根据box的高度设置scale
+    if (isMax) {
+      const { height } = await appWindow.innerSize();
+      const scale = box.clientHeight / (0.2 * height);
+      box.style.transform = `scale(${scale})`;
+    }
+  });
 });
 
 const handleCheckUpdate = (index, checked) => {
