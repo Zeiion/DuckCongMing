@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@tauri-apps/api": "^1.2.0",
+    "pinia": "^2.0.28",
+    "pinia-plugin-persistedstate": "^3.0.2",
     "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12",
     "vue": "^3.2.45"

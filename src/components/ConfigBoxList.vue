@@ -1,5 +1,22 @@
-<template>123</template>
+<template>
+  <div class="list">
+    <ConfigBox v-for="id in list" :id="id" />
+  </div>
+</template>
 
-<script setup></script>
+<script setup>
+defineProps({
+  list: {
+    type: Array,
+    required: true,
+  },
+});
+</script>
 
-<style scoped></style>
+<style scoped>
+.list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1vh;
+}
+</style>
