@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { infoTemplate } from '~/config/characters';
+import { getInfoTemplate } from '~/config/characters';
 
 export const useStore = defineStore({
   id: 'ggd',
@@ -36,13 +36,19 @@ export const useStore = defineStore({
       this.savedSize = val;
     },
     initList(number = 5) {
+      console.log('🚀 ~ initList ~ this.list', this.list);
       this.list = new Array(number).fill(0).map(
         (_, i) =>
           this.list[i] || {
             id: i + 1,
-            ...infoTemplate,
+            ...getInfoTemplate(),
           },
       );
+      console.log('🚀 ~ initList ~ this.list', this.list);
+    },
+    clearList() {
+      this.list = [];
+      console.log('🚀 ~ clearList ~ this.list', this.list);
     },
     getInfoById(id) {
       return this.list.find((item) => item.id === id);

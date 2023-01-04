@@ -41,7 +41,7 @@ const list = $computed(() =>
   new Array(playerCount).fill(0).map((_, i) => i + 1),
 );
 const clear = () => {
-  localStorage.clear();
+  store.clearList();
   hanldePlayerCountChange(playerCount);
 };
 const restoreWindow = () => {
@@ -73,6 +73,7 @@ onMounted(() => {
   /* border-radius: 2%; */
   border: 5px dashed rgba(255, 255, 255, 0.4);
   color: white;
+  user-select: none;
 }
 .player-counter {
   display: flex;

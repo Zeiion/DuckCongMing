@@ -1,8 +1,12 @@
-export const infoTemplate = {
-  name: 'default',
-  status: [false, false, false],
-  predict: [[], [], []],
-  remark: '',
+export const getInfoTemplate = () => {
+  const obj = {
+    name: 'default',
+    status: [false, false, false],
+    predict: [[], [], []],
+    remark: '',
+  };
+  const returnObj = JSON.parse(JSON.stringify(obj));
+  return returnObj;
 };
 
 export const characters = [

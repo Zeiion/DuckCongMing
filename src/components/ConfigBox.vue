@@ -77,7 +77,7 @@
 
 <script setup>
 import { appWindow } from '@tauri-apps/api/window';
-import { characters, infoTemplate } from '~/config/characters';
+import { characters, getInfoTemplate } from '~/config/characters';
 import { useStore } from '~/store/info';
 const store = useStore();
 const isMax = $computed(() => store.getMaxStatus);
@@ -88,7 +88,7 @@ const props = defineProps({
   },
 });
 const info = $computed({
-  get: () => store.getInfoById(props.id) || infoTemplate,
+  get: () => store.getInfoById(props.id) || getInfoTemplate(),
   set: (val) => {
     store.setInfoById(props.id, val);
   },
@@ -109,7 +109,7 @@ onMounted(() => {
     // 根据box的高度设置scale
     if (isMax) {
       const { height } = await appWindow.innerSize();
-      const scale = box.clientHeight / (0.2 * height);
+      const scale = box.style.clientHeight / (0.2 * height);
       box.style.transform = `scale(${scale})`;
     }
   });

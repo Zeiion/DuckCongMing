@@ -16,13 +16,11 @@ const savedSize = $ref(store.getSavedSize);
 const scale = async () => {
   if (!isMax) {
     // 全屏
-    console.log('全屏', savedSize);
     appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
   } else {
     // 最小化
     const innerSize = await appWindow.innerSize();
     savedSize = [innerSize.width, innerSize.height];
-    console.log('保存', savedSize);
     appWindow.setSize(new PhysicalSize(200, 50));
   }
   store.setMaxStatus(!isMax);
