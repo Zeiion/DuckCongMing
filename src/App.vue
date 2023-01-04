@@ -6,7 +6,7 @@
         <Info />
       </div>
       <div class="tool-right">
-        <Refresh @clear="clear" />
+        <Refresh @clear="clear" v-if="isMax" />
         <div class="player-counter" v-if="isMax">
           <span>人数：</span>
           <n-input-number

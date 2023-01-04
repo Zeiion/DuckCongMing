@@ -127,7 +127,6 @@ const handleCheckUpdate = (index, checked) => {
   justify-content: flex-end;
   width: 22vw;
   height: 20vh;
-  padding: 1%;
   box-sizing: border-box;
 }
 .mask {

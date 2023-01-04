@@ -22,6 +22,7 @@ const pin = async () => {
   if (isMax) {
     const outerPosition = await appWindow.outerPosition();
     const savedSize = await appWindow.innerSize();
+    console.log('pin', outerPosition, savedSize);
     store.setSavedSize([savedSize.width, savedSize.height]);
     store.setSavedPosition([outerPosition.x, outerPosition.y]);
   }

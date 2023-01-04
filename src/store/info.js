@@ -7,8 +7,8 @@ export const useStore = defineStore({
     return {
       list: [],
       maxStatus: true,
-      savedPosition: [86, 127],
-      savedSize: [1579, 789],
+      savedPosition: [95, 126],
+      savedSize: [1596, 799],
     };
   },
   getters: {

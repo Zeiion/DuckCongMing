@@ -17,7 +17,7 @@ defineProps({
 .list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2vh;
+  gap: 2.6vh;
   opacity: 0.5;
 }
 </style>
