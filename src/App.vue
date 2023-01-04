@@ -3,10 +3,12 @@
     <div class="tool">
       <div class="tool-left" v-if="isMax">
         <Handler />
+        <Info />
       </div>
       <div class="tool-right">
+        <Refresh @clear="clear" />
         <div class="player-counter" v-if="isMax">
-          <span @click="clear">人数：</span>
+          <span>人数：</span>
           <n-input-number
             size="small"
             v-model:value="playerCount"
@@ -40,10 +42,12 @@ const hanldePlayerCountChange = (count) => {
 const list = $computed(() =>
   new Array(playerCount).fill(0).map((_, i) => i + 1),
 );
+
 const clear = () => {
   store.clearList();
   hanldePlayerCountChange(playerCount);
 };
+
 const restoreWindow = () => {
   const savedSize = store.getSavedSize;
   if (savedSize && isMax) {

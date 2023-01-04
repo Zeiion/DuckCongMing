@@ -36,7 +36,6 @@ export const useStore = defineStore({
       this.savedSize = val;
     },
     initList(number = 5) {
-      console.log('🚀 ~ initList ~ this.list', this.list);
       this.list = new Array(number).fill(0).map(
         (_, i) =>
           this.list[i] || {
@@ -44,11 +43,9 @@ export const useStore = defineStore({
             ...getInfoTemplate(),
           },
       );
-      console.log('🚀 ~ initList ~ this.list', this.list);
     },
     clearList() {
       this.list = [];
-      console.log('🚀 ~ clearList ~ this.list', this.list);
     },
     getInfoById(id) {
       return this.list.find((item) => item.id === id);
