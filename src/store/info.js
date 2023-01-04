@@ -6,14 +6,21 @@ export const useStore = defineStore({
   state() {
     return {
       list: [],
+      maxStatus: true,
     };
   },
   getters: {
+    getMaxStatus() {
+      return this.maxStatus;
+    },
     getList() {
       return this.list;
     },
   },
   actions: {
+    setMaxStatus(val) {
+      this.maxStatus = val;
+    },
     initList(number = 5) {
       this.list = Array.from(
         { length: number },

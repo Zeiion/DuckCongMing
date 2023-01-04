@@ -1,24 +1,28 @@
 <template>
   <div class="main">
     <div class="tool">
-      <div class="player-counter">
+      <div class="player-counter" v-if="isMax">
         人数：<n-input-number
+          size="small"
           v-model:value="playerCount"
           :min="5"
           :max="16"
-          @change="hanldePlayerCountChange"
+          @update:value="hanldePlayerCountChange"
         ></n-input-number>
       </div>
+      <Timer />
       <Pin />
+      <Scale />
       <Handler />
     </div>
-    <ConfigBoxList :list="list" />
+    <ConfigBoxList :list="list" v-if="isMax" />
   </div>
 </template>
 <script setup>
 import { useStore } from '~/store/info';
 const playerCount = $ref(5);
 const store = useStore();
+const isMax = $computed(() => store.getMaxStatus);
 const hanldePlayerCountChange = (count) => {
   store.initList(count);
 };
@@ -33,9 +37,9 @@ const list = $computed(() =>
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 1%;
+  padding: 1vh 1vw;
   box-sizing: border-box;
-  border-radius: 2%;
+  /* border-radius: 2%; */
   border: 5px dashed rgba(0, 0, 0, 0.4);
 }
 .player-counter {
@@ -46,7 +50,7 @@ const list = $computed(() =>
   display: flex;
   justify-content: flex-end;
   gap: 1vw;
-  height: 8vh;
+  height: 50px;
   align-items: center;
 }
 </style>

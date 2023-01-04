@@ -1,6 +1,6 @@
 <template>
   <div class="list">
-    <ConfigBox v-for="id in list" :id="id" />
+    <ConfigBox v-for="id in list" :id="id" :key="id" />
   </div>
 </template>
 
