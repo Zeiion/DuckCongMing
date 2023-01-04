@@ -1,0 +1,25 @@
+{
+  "name": "DuckCongMing",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "tauri": "tauri"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.2.0",
+    "unplugin-auto-import": "^0.12.1",
+    "unplugin-vue-components": "^0.22.12",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.2.2",
+    "@vicons/fluent": "^0.12.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "naive-ui": "^2.34.3",
+    "vite": "^4.0.0"
+  }
+}
