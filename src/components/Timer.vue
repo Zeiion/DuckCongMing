@@ -17,6 +17,7 @@ const handleClick = () => {
   if (timer) {
     clearInterval(timer);
     timer = null;
+    time = 0;
   } else {
     timer = setInterval(() => {
       time++;
@@ -31,5 +32,6 @@ const handleClick = () => {
   width: 100px;
   text-align: center;
   font-size: 20px;
+  background-color: rgba(40, 40, 40, 0.8);
 }
 </style>

@@ -43,11 +43,13 @@ onMounted(() => {
   padding: 1vh 1vw;
   box-sizing: border-box;
   /* border-radius: 2%; */
-  border: 5px dashed rgba(0, 0, 0, 0.4);
+  border: 5px dashed rgba(255, 255, 255, 0.4);
+  color: white;
 }
 .player-counter {
   display: flex;
   align-items: center;
+  opacity: 0.5;
 }
 .tool {
   display: flex;

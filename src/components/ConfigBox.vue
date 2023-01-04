@@ -15,14 +15,15 @@
           :checked="info.status[0]"
           size="small"
           @update:checked="(...args) => handleCheckUpdate(0, ...args)"
+          style="color: white"
         >
-          好鹅
+          <span style="color: white"> 好鹅 </span>
         </n-checkbox>
         <n-select
           label-field="name"
           value-field="id"
           v-model:value="info.predict[0]"
-          :options="characters"
+          :options="characters.filter((item) => item.belong === 'goose')"
           multiple
           clearable
           placeholder="选择好鸭身份"
@@ -35,13 +36,13 @@
           size="small"
           @update:checked="(...args) => handleCheckUpdate(1, ...args)"
         >
-          坏鸭
+          <span style="color: red"> 坏鸭 </span>
         </n-checkbox>
         <n-select
           label-field="name"
           value-field="id"
           v-model:value="info.predict[1]"
-          :options="characters"
+          :options="characters.filter((item) => item.belong === 'duck')"
           multiple
           clearable
           placeholder="选择坏鹅身份"
@@ -54,13 +55,13 @@
           size="small"
           @update:checked="(...args) => handleCheckUpdate(2, ...args)"
         >
-          中立
+          <span style="color: orange"> 中立 </span>
         </n-checkbox>
         <n-select
           label-field="name"
           value-field="id"
           v-model:value="info.predict[2]"
-          :options="characters"
+          :options="characters.filter((item) => item.belong === 'neutral')"
           multiple
           clearable
           placeholder="选择中立身份"
@@ -119,7 +120,7 @@ const handleCheckUpdate = (index, checked) => {
 .box {
   display: flex;
   justify-content: flex-end;
-  width: 24vw;
+  width: 22vw;
   height: 20vh;
   padding: 1%;
   box-sizing: border-box;
@@ -144,13 +145,14 @@ const handleCheckUpdate = (index, checked) => {
 .n-checkbox {
   width: 40%;
 }
-:deep(.n-checkbox) > span {
+:deep(.n-checkbox) span {
   white-space: nowrap;
   display: inline-block;
   width: 32px;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
+  font-weight: bold;
 }
 :deep(.n-input) .n-input-wrapper {
   max-height: 6vh;
