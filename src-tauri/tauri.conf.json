@@ -67,11 +67,7 @@
         "title": "DuckCongMing",
         "transparent": true,
         "decorations": false,
-        "alwaysOnTop": true,
-        "width": 1596,
-        "height": 799,
-        "x": 95,
-        "y": 126
+        "alwaysOnTop": true
       }
     ]
   }

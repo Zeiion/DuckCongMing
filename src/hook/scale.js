@@ -30,12 +30,16 @@ export function useScale() {
 
   // restore window size and position
   const restoreWindow = () => {
-    const savedSize = store.getSavedSize;
-    if (savedSize && isMax.value) {
-      appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
+    if (!isMax.value) {
+      appWindow.setSize(new PhysicalSize(200, 50));
+    } else {
+      const savedSize = store.getSavedSize;
+      if (savedSize) {
+        appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
+      }
     }
     const savedPosition = store.getSavedPosition;
-    if (savedPosition && isMax.value) {
+    if (savedPosition) {
       appWindow.setPosition(
         new PhysicalPosition(savedPosition[0], savedPosition[1]),
       );
