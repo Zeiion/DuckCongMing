@@ -1,10 +1,10 @@
 [package]
 name = "DuckCongMing"
-version = "0.0.1"
+version = "0.0.2"
 description = "Goose Goose Duck Helper"
 authors = ["Zeiion"]
-license = ""
-repository = ""
+license = "MIT"
+repository = "https://github.com/Zeiion/DuckCongMing"
 edition = "2021"
 rust-version = "1.57"
 
