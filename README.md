@@ -5,7 +5,8 @@
 A simple Goose Goose Duck Helper with recording tools. Temporarily Chinese Only.
 
 受 [GooseGooseDuck_helper](https://github.com/Wandering-Li/GooseGooseDuck_helper) 启发，一时兴起而为之，欢迎指出 bug 或提出建议。
-支持的功能有：
+
+### 支持的功能有：
 
 - 窗口大小调节 Window Resize
 - 计时 Time Counting
@@ -15,3 +16,11 @@ A simple Goose Goose Duck Helper with recording tools. Temporarily Chinese Only.
 使用到的开源工具：Vue / [Tauri](https://tauri.app/) / [Naive UI](https://www.naiveui.com/)
 
 理论上支持全平台，[Mac](https://tauri.app/v1/guides/building/macos) 用户可以尝试自行 build
+
+### 截图：
+
+<img src=".github/dcm-meeting.png" alt="会议模式" style="width:50%" />
+
+<img src=".github/dcm-info.png" alt="功能介绍" style="width:50%" />
+
+<img src=".github/dcm-tiny.png" alt="小窗悬浮模式" style="width:50%" />
