@@ -1,8 +1,8 @@
 [package]
-name = "duck_cong_ming"
-version = "0.0.0"
-description = "A Tauri App"
-authors = ["you"]
+name = "DuckCongMing"
+version = "0.0.1"
+description = "Goose Goose Duck Helper"
+authors = ["Zeiion"]
 license = ""
 repository = ""
 edition = "2021"

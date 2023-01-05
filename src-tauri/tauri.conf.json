@@ -7,7 +7,7 @@
     "withGlobalTauri": false
   },
   "package": {
-    "productName": "duck_cong_ming",
+    "productName": "DuckCongMing",
     "version": "0.0.0"
   },
   "tauri": {
@@ -64,7 +64,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "duck_cong_ming",
+        "title": "DuckCongMing",
         "transparent": true,
         "decorations": false,
         "alwaysOnTop": true,
