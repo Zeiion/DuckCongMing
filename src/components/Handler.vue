@@ -16,5 +16,6 @@ const close = () => {
 .handler {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 </style>
