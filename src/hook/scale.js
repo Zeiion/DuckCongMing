@@ -7,8 +7,7 @@ import { useStore } from '~/store/info';
 
 export function useScale() {
   const store = useStore();
-  // $ api bug
-  const isMax = computed({
+  const isMax = $computed({
     get: () => store.getMaxStatus,
     set: (val) => store.setMaxStatus(val),
   });
@@ -16,7 +15,7 @@ export function useScale() {
 
   // scale window size
   const scale = async () => {
-    if (!isMax.value) {
+    if (!isMax) {
       // 全屏
       appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
     } else {
@@ -25,12 +24,12 @@ export function useScale() {
       savedSize = [innerSize.width, innerSize.height];
       appWindow.setSize(new PhysicalSize(200, 50));
     }
-    isMax.value = !isMax.value;
+    isMax = !isMax;
   };
 
   // restore window size and position
   const restoreWindow = () => {
-    if (!isMax.value) {
+    if (!isMax) {
       appWindow.setSize(new PhysicalSize(200, 50));
     } else {
       const savedSize = store.getSavedSize;
@@ -49,7 +48,7 @@ export function useScale() {
 
   // save window size and position
   const saveWindow = async () => {
-    if (isMax.value) {
+    if (isMax) {
       const outerPosition = await appWindow.outerPosition();
       const savedSize = await appWindow.innerSize();
       store.setSavedSize([savedSize.width, savedSize.height]);
@@ -62,6 +61,6 @@ export function useScale() {
     scale,
     restoreWindow,
     saveWindow,
-    isMax,
+    isMax: $$(isMax),
   };
 }
