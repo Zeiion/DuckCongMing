@@ -27,7 +27,7 @@
           multiple
           clearable
           filterable
-          placeholder="选择好鸭身份"
+          placeholder="选择好鹅身份"
           size="small"
         ></n-select>
       </div>
@@ -47,7 +47,7 @@
           multiple
           clearable
           filterable
-          placeholder="选择坏鹅身份"
+          placeholder="选择坏鸭身份"
           size="small"
         ></n-select>
       </div>
