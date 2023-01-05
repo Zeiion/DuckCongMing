@@ -19,8 +19,8 @@ A simple Goose Goose Duck Helper with recording tools. Temporarily Chinese Only.
 
 ### 截图：
 
-<img src=".github/dcm-meeting.png" alt="会议模式" style="width:50%" />
+<img src=".github/dcm-meeting.png" alt="会议模式" />
 
-<img src=".github/dcm-info.png" alt="功能介绍" style="width:50%" />
+<img src=".github/dcm-info.png" alt="功能介绍" />
 
-<img src=".github/dcm-tiny.png" alt="小窗悬浮模式" style="width:50%" />
+<img src=".github/dcm-tiny.png" alt="小窗悬浮模式" />
