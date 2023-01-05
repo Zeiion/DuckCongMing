@@ -1,11 +1,15 @@
 <template>
   <n-icon size="30">
-    <ArrowMove20Filled data-tauri-drag-region class="handler" />
+    <Dismiss20Filled class="handler" @click="close" />
   </n-icon>
 </template>
 
 <script setup>
-import { ArrowMove20Filled } from '@vicons/fluent';
+import { Dismiss20Filled } from '@vicons/fluent';
+import { appWindow } from '@tauri-apps/api/window';
+const close = () => {
+  appWindow.close();
+};
 </script>
 
 <style scoped>

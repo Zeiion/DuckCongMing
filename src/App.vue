@@ -1,11 +1,11 @@
 <template>
   <div class="main">
-    <div class="tool">
-      <div class="tool-left" v-if="isMax">
+    <div class="tool" data-tauri-drag-region>
+      <div class="tool-left" v-if="isMax" data-tauri-drag-region>
         <Logo />
         <Info />
       </div>
-      <div class="tool-right">
+      <div class="tool-right" data-tauri-drag-region>
         <Save v-if="isMax" />
         <Refresh @clear="clear" v-if="isMax" />
         <div class="player-counter" v-if="isMax">
@@ -18,6 +18,7 @@
             @update:value="hanldePlayerCountChange"
           ></n-input-number>
         </div>
+        <div @click="add"></div>
         <Timer />
         <Pin />
         <Scale />
@@ -28,15 +29,11 @@
   </div>
 </template>
 <script setup>
-import {
-  appWindow,
-  PhysicalPosition,
-  PhysicalSize,
-} from '@tauri-apps/api/window';
 import { useStore } from '~/store/info';
+import { useScale } from '~/hook/scale';
+const { isMax, restoreWindow } = useScale();
 const playerCount = $ref(5);
 const store = useStore();
-const isMax = $computed(() => store.getMaxStatus);
 const brightness = $computed(() => store.getBrightness / 100);
 const hanldePlayerCountChange = (count) => {
   store.initList(count);
@@ -50,19 +47,6 @@ const clear = () => {
   hanldePlayerCountChange(playerCount);
 };
 
-const restoreWindow = () => {
-  const savedSize = store.getSavedSize;
-  if (savedSize && isMax) {
-    appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
-  }
-  const savedPosition = store.getSavedPosition;
-  if (savedPosition && isMax) {
-    appWindow.setPosition(
-      new PhysicalPosition(savedPosition[0], savedPosition[1]),
-    );
-  }
-  // console.log('🚀', savedSize, savedPosition);
-};
 onMounted(() => {
   hanldePlayerCountChange(playerCount);
   restoreWindow();

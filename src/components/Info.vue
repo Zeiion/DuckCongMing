@@ -22,10 +22,18 @@
         </span>
       </div>
       <div class="desc">
-        <n-icon color="#111" size="30">
-          <ArrowMove20Filled />
-        </n-icon>
-        <span> 拖动此按钮来移动窗口 </span>
+        <div class="bold">拖动窗口:</div>
+        <span>
+          鼠标放至窗口顶部（呈
+          <n-icon color="#111" size="15">
+            <HandLeft20Filled />
+          </n-icon>
+          ）拖动即可
+        </span>
+      </div>
+      <div class="desc">
+        <div class="bold">调整大小:</div>
+        <span> 拉拽虚线框即可调整窗口大小</span>
       </div>
       <div class="desc">
         <n-icon color="#111" size="30">
@@ -67,7 +75,7 @@
         <span> 点击此按钮以保存窗口大小、位置信息 </span>
       </div>
       <div class="desc">
-        <span style="font-style: italic; font-size: 0.5em">00:00</span>
+        <div style="font-style: italic; font-size: 0.5em">00:00</div>
         <span> 点击开始计时，再次点击清空计时 </span>
       </div>
       <template #footer>
@@ -99,9 +107,9 @@ import {
   Pin20Regular,
   ArrowMaximize20Filled,
   ArrowMinimize20Filled,
-  ArrowMove20Filled,
   Eraser20Regular,
   Save20Regular,
+  HandLeft20Filled,
 } from '@vicons/fluent';
 import { open } from '@tauri-apps/api/shell';
 
@@ -124,13 +132,18 @@ const openLib = () => open('https://github.com/Zeiion/DuckCongMing');
 }
 .desc {
   display: flex;
-  gap: 1vw;
   align-items: center;
-  margin-bottom: 3vh;
+  margin-bottom: 2.8vh;
   font-size: large;
+}
+.desc > span {
+  margin-left: 1vw;
 }
 .highlight {
   color: #f00;
+  font-weight: bold;
+}
+.bold {
   font-weight: bold;
 }
 .footer {
