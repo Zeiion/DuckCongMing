@@ -105,11 +105,11 @@ onMounted(() => {
       }, 500);
     });
   };
-  appWindow.onResized(async () => {
+  appWindow.onResized(({ payload: size }) => {
     // 根据box的高度设置scale
     if (isMax) {
-      const { height } = await appWindow.innerSize();
-      const scale = box.style.clientHeight / (0.2 * height);
+      const { height } = size;
+      const scale = box.clientHeight / (0.2 * height);
       box.style.transform = `scale(${scale})`;
     }
   });
