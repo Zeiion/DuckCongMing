@@ -6,6 +6,7 @@
         <Info />
       </div>
       <div class="tool-right">
+        <Save v-if="isMax" />
         <Refresh @clear="clear" v-if="isMax" />
         <div class="player-counter" v-if="isMax">
           <span>人数：</span>
@@ -59,6 +60,7 @@ const restoreWindow = () => {
       new PhysicalPosition(savedPosition[0], savedPosition[1]),
     );
   }
+  // console.log('🚀', savedSize, savedPosition);
 };
 onMounted(() => {
   hanldePlayerCountChange(playerCount);
