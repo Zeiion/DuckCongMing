@@ -37,6 +37,7 @@ import { useStore } from '~/store/info';
 const playerCount = $ref(5);
 const store = useStore();
 const isMax = $computed(() => store.getMaxStatus);
+const brightness = $computed(() => store.getBrightness / 100);
 const hanldePlayerCountChange = (count) => {
   store.initList(count);
 };
@@ -84,7 +85,7 @@ onMounted(() => {
 .player-counter {
   display: flex;
   align-items: center;
-  opacity: 0.5;
+  opacity: v-bind(brightness);
 }
 .tool {
   display: flex;

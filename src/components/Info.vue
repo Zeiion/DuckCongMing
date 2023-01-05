@@ -61,14 +61,25 @@
         <span> 点击此按钮以清空所有数据 </span>
       </div>
       <div class="desc">
+        <n-icon color="#111" size="30">
+          <Save20Regular />
+        </n-icon>
+        <span> 点击此按钮以保存窗口大小、位置信息 </span>
+      </div>
+      <div class="desc">
         <span style="font-style: italic; font-size: 0.5em">00:00</span>
         <span> 点击开始计时，再次点击清空计时 </span>
       </div>
       <template #footer>
         <div class="footer">
-          一时兴起而为之，欢迎提出bug和建议
-          <br />
-          \(Ze╹◡╹o)N
+          <div>
+            <Brightness />
+          </div>
+          <div>
+            一时兴起而为之，欢迎提出bug和建议
+            <br />
+            \(Ze╹◡╹o)N
+          </div>
         </div>
       </template>
     </n-card>
@@ -85,6 +96,7 @@ import {
   ArrowMinimize20Filled,
   ArrowMove20Filled,
   Eraser20Regular,
+  Save20Regular,
 } from '@vicons/fluent';
 const showModal = $ref(false);
 const showInfo = () => {
@@ -115,7 +127,7 @@ const showInfo = () => {
 }
 .footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   text-align: end;
 }
 </style>

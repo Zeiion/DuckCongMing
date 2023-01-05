@@ -9,6 +9,7 @@ export const useStore = defineStore({
       maxStatus: true,
       savedPosition: [95, 126],
       savedSize: [1596, 799],
+      brightness: 50,
     };
   },
   getters: {
@@ -24,6 +25,9 @@ export const useStore = defineStore({
     getSavedSize() {
       return this.savedSize;
     },
+    getBrightness() {
+      return this.brightness;
+    },
   },
   actions: {
     setMaxStatus(val) {
@@ -34,6 +38,10 @@ export const useStore = defineStore({
     },
     setSavedSize(val) {
       this.savedSize = val;
+    },
+    // 0-1 or 0-100
+    setBrightness(val) {
+      this.brightness = val < 1 ? (val * 100).toFixed(0) : val;
     },
     initList(number = 5) {
       this.list = new Array(number).fill(0).map(
