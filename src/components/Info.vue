@@ -76,7 +76,12 @@
             <Brightness />
           </div>
           <div>
-            一时兴起而为之，欢迎提出bug和建议
+            一时兴起而为之，欢迎
+            <span
+              style="cursor: pointer; text-decoration: underline"
+              @click="openLib"
+              >提出bug和建议</span
+            >
             <br />
             \(Ze╹◡╹o)N
           </div>
@@ -98,10 +103,13 @@ import {
   Eraser20Regular,
   Save20Regular,
 } from '@vicons/fluent';
+import { open } from '@tauri-apps/api/shell';
+
 const showModal = $ref(false);
 const showInfo = () => {
   showModal = true;
 };
+const openLib = () => open('https://github.com/Zeiion/DuckCongMing');
 </script>
 
 <style scoped>
