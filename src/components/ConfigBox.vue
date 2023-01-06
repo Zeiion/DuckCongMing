@@ -105,14 +105,14 @@ onMounted(() => {
       }, 500);
     });
   };
-  appWindow.onResized(({ payload: size }) => {
-    // 根据box的高度设置scale
-    if (isMax) {
-      const { height } = size;
-      const scale = box.clientHeight / (0.2 * height);
-      box.style.transform = `scale(${scale})`;
-    }
-  });
+  // appWindow.onResized(({ payload: size }) => {
+  //   // 根据box的高度设置scale
+  //   if (isMax) {
+  //     const { height } = size;
+  //     const scale = box.clientHeight / (0.2 * height);
+  //     box.style.transform = `scale(${scale})`;
+  //   }
+  // });
 });
 
 const handleCheckUpdate = (index, checked) => {
