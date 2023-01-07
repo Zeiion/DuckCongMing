@@ -1,7 +1,7 @@
 <template>
   <n-popover trigger="click">
     <template #trigger>
-      <n-icon class="scale" size="30" @click="openScale">
+      <n-icon class="scale" size="30">
         <ScaleFit20Regular />
       </n-icon>
     </template>

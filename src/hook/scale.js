@@ -3,6 +3,7 @@ import {
   PhysicalSize,
   PhysicalPosition,
 } from '@tauri-apps/api/window';
+import { register, isRegistered } from '@tauri-apps/api/globalShortcut';
 import { useStore } from '~/store/info';
 
 export function useScale() {
@@ -17,14 +18,15 @@ export function useScale() {
   const zoom = async () => {
     if (!isMax) {
       // 全屏
-      appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
+      await appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
     } else {
       // 最小化
       const innerSize = await appWindow.innerSize();
       savedSize = [innerSize.width, innerSize.height];
-      appWindow.setSize(new PhysicalSize(200, 50));
+      await appWindow.setSize(new PhysicalSize(200, 50));
     }
     isMax = !isMax;
+    appWindow.setFocus();
   };
 
   // restore window size and position
@@ -57,10 +59,29 @@ export function useScale() {
     }
   };
 
+  const addZoomShortCutListener = async () => {
+    const shortCutKey = store.getShortCutKey;
+    const command = 'CommandOrControl+' + shortCutKey;
+    const registered = await isRegistered(command);
+    if (registered) {
+      // ctrl + shortCutKey to zoom window
+      document.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === shortCutKey) {
+          zoom();
+        }
+      });
+    } else {
+      await register(command, () => {
+        zoom();
+      });
+    }
+  };
+
   return {
     zoom,
     restoreWindow,
     saveWindow,
     isMax: $$(isMax),
+    addZoomShortCutListener,
   };
 }

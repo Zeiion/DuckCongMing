@@ -53,18 +53,19 @@
       </div>
       <div class="desc">
         <n-icon color="#111" size="30">
-          <ArrowMaximize20Filled />
-        </n-icon>
-        <span> 点击窗口放大，进入会议模式 </span>
-      </div>
-      <div class="desc">
-        <n-icon color="#111" size="30">
           <ArrowMinimize20Filled />
         </n-icon>
         <span>
           点击窗口缩小，进入游戏模式，
           <span class="highlight">刺客鸭</span> 狙击时建议暂时缩小窗口
         </span>
+      </div>
+      <div class="desc">
+        <n-icon color="#111" size="30">
+          <ArrowMaximize20Filled />
+        </n-icon>
+        <span> 点击窗口放大，进入会议模式 </span>
+        <span class="bold">窗口放大缩小快捷键：Ctrl + ` （反引号~）</span>
       </div>
       <div class="desc">
         <n-icon color="#111" size="30">

@@ -32,7 +32,7 @@
 <script setup>
 import { useStore } from '~/store/info';
 import { useScale } from '~/hook/scale';
-const { isMax, restoreWindow } = useScale();
+const { isMax, restoreWindow, addZoomShortCutListener } = useScale();
 const playerCount = $ref(5);
 const store = useStore();
 const brightness = $computed(() => store.getBrightness / 100);
@@ -49,8 +49,9 @@ const clear = () => {
 };
 
 onMounted(() => {
-  hanldePlayerCountChange(playerCount);
   restoreWindow();
+  hanldePlayerCountChange(playerCount);
+  addZoomShortCutListener();
 });
 </script>
 

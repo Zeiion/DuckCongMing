@@ -16,6 +16,7 @@ export const useStore = defineStore({
         rowGap: '2.6vh',
         columnGap: '2.6vw',
       },
+      shortCutKey: '`',
     };
   },
   getters: {
@@ -24,6 +25,9 @@ export const useStore = defineStore({
     },
     getList() {
       return this.list;
+    },
+    getShortCutKey() {
+      return this.shortCutKey;
     },
     getSavedPosition() {
       return this.styleConfig.savedPosition;
