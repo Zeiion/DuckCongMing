@@ -93,7 +93,7 @@
         <div class="footer">
           <div style="text-align: left">
             <Brightness />
-            <span class="clear" @click="clearCache"> 清空缓存并退出 </span>
+            <span class="clear" @click="clearCache"> 清空缓存并重启 </span>
           </div>
           <div>
             一时兴起而为之，欢迎
