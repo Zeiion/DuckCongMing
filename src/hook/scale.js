@@ -13,8 +13,8 @@ export function useScale() {
   });
   const savedSize = $ref(store.getSavedSize);
 
-  // scale window size
-  const scale = async () => {
+  // zoom window
+  const zoom = async () => {
     if (!isMax) {
       // 全屏
       appWindow.setSize(new PhysicalSize(savedSize[0], savedSize[1]));
@@ -58,7 +58,7 @@ export function useScale() {
   };
 
   return {
-    scale,
+    zoom,
     restoreWindow,
     saveWindow,
     isMax: $$(isMax),

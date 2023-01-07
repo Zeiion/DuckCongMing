@@ -6,6 +6,7 @@
         <Info />
       </div>
       <div class="tool-right" data-tauri-drag-region>
+        <Scale v-if="isMax" />
         <Save v-if="isMax" />
         <Refresh @clear="clear" v-if="isMax" />
         <div class="player-counter" v-if="isMax">
@@ -21,7 +22,7 @@
         <div @click="add"></div>
         <Timer />
         <Pin />
-        <Scale />
+        <Zoom />
         <Handler />
       </div>
     </div>

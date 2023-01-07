@@ -8,6 +8,8 @@
 import { useStore } from '~/store/info';
 const store = useStore();
 const brightness = $computed(() => store.getBrightness / 100);
+const rowGap = $computed(() => store.getRowGap);
+const colGap = $computed(() => store.getColGap);
 defineProps({
   list: {
     type: Array,
@@ -20,7 +22,7 @@ defineProps({
 .list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2.6vh;
+  gap: v-bind(rowGap) v-bind(colGap);
   opacity: v-bind(brightness);
 }
 </style>

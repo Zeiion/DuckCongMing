@@ -37,6 +37,22 @@
       </div>
       <div class="desc">
         <n-icon color="#111" size="30">
+          <ScaleFit20Regular />
+        </n-icon>
+        <span>
+          点击此按钮弹出可以配置会议模式卡片间距的弹窗，依次可以配置：卡片大小、上下边距、左右边距
+        </span>
+      </div>
+      <div class="desc">
+        <n-icon color="#111" size="30">
+          <Save20Regular />
+        </n-icon>
+        <span>
+          点击此按钮以保存窗口大小、位置信息；调整好适配屏幕的窗口大小后保存，下次启动时将自动恢复保存配置
+        </span>
+      </div>
+      <div class="desc">
+        <n-icon color="#111" size="30">
           <ArrowMaximize20Filled />
         </n-icon>
         <span> 点击窗口放大，进入会议模式 </span>
@@ -67,12 +83,6 @@
           <Eraser20Regular />
         </n-icon>
         <span> 点击此按钮以清空所有数据 </span>
-      </div>
-      <div class="desc">
-        <n-icon color="#111" size="30">
-          <Save20Regular />
-        </n-icon>
-        <span> 点击此按钮以保存窗口大小、位置信息 </span>
       </div>
       <div class="desc">
         <div style="font-style: italic; font-size: 0.5em">00:00</div>
@@ -109,6 +119,7 @@ import {
   ArrowMinimize20Filled,
   Eraser20Regular,
   Save20Regular,
+  ScaleFit20Regular,
   HandLeft20Filled,
 } from '@vicons/fluent';
 import { open } from '@tauri-apps/api/shell';
@@ -129,6 +140,7 @@ const openLib = () => open('https://github.com/Zeiion/DuckCongMing');
 .info-modal {
   width: 80vw;
   padding: 2vh 2vw;
+  background-color: rgba(255, 255, 255, 0.92);
 }
 .desc {
   display: flex;

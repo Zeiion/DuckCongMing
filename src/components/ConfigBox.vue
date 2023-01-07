@@ -81,6 +81,7 @@ import { characters, getInfoTemplate } from '~/config/characters';
 import { useStore } from '~/store/info';
 const store = useStore();
 const isMax = $computed(() => store.getMaxStatus);
+const boxScale = $computed(() => store.getBoxScale);
 const props = defineProps({
   id: {
     type: Number,
@@ -125,9 +126,9 @@ const handleCheckUpdate = (index, checked) => {
 .box {
   display: flex;
   justify-content: flex-end;
-  width: 22vw;
   height: 20vh;
   box-sizing: border-box;
+  transform: scale(v-bind(boxScale));
 }
 .mask {
   flex: 1;
