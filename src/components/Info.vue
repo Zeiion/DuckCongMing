@@ -91,8 +91,9 @@
       </div>
       <template #footer>
         <div class="footer">
-          <div>
+          <div style="text-align: left">
             <Brightness />
+            <span class="clear" @click="clearCache"> 清空缓存并退出 </span>
           </div>
           <div>
             一时兴起而为之，欢迎
@@ -124,12 +125,17 @@ import {
   HandLeft20Filled,
 } from '@vicons/fluent';
 import { open } from '@tauri-apps/api/shell';
+import { relaunch } from '@tauri-apps/api/process';
 
 const showModal = $ref(false);
 const showInfo = () => {
   showModal = true;
 };
 const openLib = () => open('https://github.com/Zeiion/DuckCongMing');
+const clearCache = async () => {
+  localStorage.clear();
+  relaunch();
+};
 </script>
 
 <style scoped>
@@ -163,5 +169,15 @@ const openLib = () => open('https://github.com/Zeiion/DuckCongMing');
   display: flex;
   justify-content: space-between;
   text-align: end;
+}
+
+.clear {
+  cursor: pointer;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgb(167, 42, 42);
 }
 </style>

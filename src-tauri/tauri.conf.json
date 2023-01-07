@@ -17,6 +17,10 @@
         "all": false,
         "open": true
       },
+      "process": {
+        "all": false,
+        "relaunch": true
+      },
       "window": {
         "all": true
       },

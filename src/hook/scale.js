@@ -13,6 +13,7 @@ export function useScale() {
     set: (val) => store.setMaxStatus(val),
   });
   const savedSize = $ref(store.getSavedSize);
+  const registered = $ref(false);
 
   // zoom window
   const zoom = async () => {
@@ -26,7 +27,7 @@ export function useScale() {
       await appWindow.setSize(new PhysicalSize(200, 50));
     }
     isMax = !isMax;
-    appWindow.setFocus();
+    if (registered) await appWindow.setFocus();
   };
 
   // restore window size and position
@@ -62,7 +63,7 @@ export function useScale() {
   const addZoomShortCutListener = async () => {
     const shortCutKey = store.getShortCutKey;
     const command = 'CommandOrControl+' + shortCutKey;
-    const registered = await isRegistered(command);
+    registered = await isRegistered(command);
     if (registered) {
       // ctrl + shortCutKey to zoom window
       document.addEventListener('keydown', (e) => {
