@@ -12,6 +12,7 @@ A simple Goose Goose Duck Helper with recording tools. Temporarily Chinese Only.
 - 计时 Time Counting
 - 身份猜测 Duck/Goose Guessing
 - 备忘信息 Info Record
+- 样式自定义 Gap / Brightness Adjustment
 
 使用到的开源工具：Vue / [Tauri](https://tauri.app/) / [Naive UI](https://www.naiveui.com/)
 
