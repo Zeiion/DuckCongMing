@@ -1,5 +1,5 @@
 <template>
-  <div class="timer" @click="handleClick">
+  <div class="timer" @click="handleClick" @dblclick="handleDoubleClick">
     {{ showTime }}
   </div>
 </template>
@@ -12,16 +12,23 @@ const showTime = $computed(() => {
   const second = ('00' + (time % 60)).slice(-2);
   return `${minute}:${second}`;
 });
+// start timer or stop timer
 const handleClick = () => {
   if (timer) {
     clearInterval(timer);
     timer = null;
-    time = 0;
   } else {
     timer = setInterval(() => {
       time++;
     }, 1000);
   }
+};
+// clear time and stop timer
+const handleDoubleClick = () => {
+  if (timer) {
+    clearInterval(timer);
+  }
+  time = 0;
 };
 </script>
 

@@ -87,7 +87,7 @@
       </div>
       <div class="desc">
         <div style="font-style: italic; font-size: 0.5em">00:00</div>
-        <span> 点击开始计时，再次点击清空计时 </span>
+        <span> 单击开始/暂停计时，双击清空计时 </span>
       </div>
       <template #footer>
         <div class="footer">
