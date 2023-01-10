@@ -27,6 +27,7 @@ const handleClick = () => {
 const handleDoubleClick = () => {
   if (timer) {
     clearInterval(timer);
+    timer = null;
   }
   time = 0;
 };
