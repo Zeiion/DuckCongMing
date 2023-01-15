@@ -10,7 +10,7 @@ export const getInfoTemplate = () => {
 };
 
 export const characters = [
-  // 鹅 警长 正义使者 复仇者 加拿大鹅 网红 侦探 保镖 通灵 肉汁 观鸟者 工程师 殡仪员 星界 模仿 超能力 恋人鹅 冒险家 政治家 流浪儿童 锁匠 跟踪器
+  // 鹅 警长 正义使者 复仇者 加拿大鹅 网红 侦探 保镖 通灵 肉汁 观鸟者 工程师 殡仪员 星界 模仿 恋人鹅 冒险家 政治家 流浪儿童 锁匠 跟踪器 跟踪者
   {
     id: 'g-1',
     name: '鹅',
@@ -87,11 +87,11 @@ export const characters = [
     name: '模仿',
     belong: 'goose',
   },
-  {
-    id: 'g-16',
-    name: '超能力',
-    belong: 'goose',
-  },
+  // {
+  //   id: 'g-16',
+  //   name: '超能力',
+  //   belong: 'goose',
+  // },
   {
     id: 'g-17',
     name: '恋人鹅',
@@ -122,7 +122,12 @@ export const characters = [
     name: '跟踪器',
     belong: 'goose',
   },
-  // 鸭 刺客 间谍 变形 爆炸王 身份窃贼 专业杀手 连环杀手 雇佣杀手 丧葬者 派对 食鸟鸭 隐形 静音 忍者 告密 术士 恋人鸭
+  {
+    id: 'g-23',
+    name: '跟踪者',
+    belong: 'goose',
+  },
+  // 鸭 刺客 间谍 变形 爆炸王 身份窃贼 专业杀手 连环杀手 雇佣杀手 丧葬者 派对 食鸟鸭 隐形 静音 忍者 告密 术士 恋人鸭 超能力者
   {
     id: 'd-1',
     name: '鸭',
@@ -212,6 +217,11 @@ export const characters = [
   {
     id: 'd-18',
     name: '恋人鸭',
+    belong: 'duck',
+  },
+  {
+    id: 'd-19',
+    name: '超能力者',
     belong: 'duck',
   },
   // 鹈鹕 呆呆鸟 鸽子 秃鹫 猎鹰 决斗呆呆鸟

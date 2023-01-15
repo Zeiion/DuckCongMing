@@ -1,6 +1,6 @@
 [package]
 name = "DuckCongMing"
-version = "1.0.0"
+version = "1.0.1"
 description = "Goose Goose Duck Helper"
 authors = ["Zeiion"]
 license = "MIT"
